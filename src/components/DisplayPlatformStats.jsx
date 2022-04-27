@@ -7,6 +7,12 @@ const DisplayPlatformStats = ({videoGames}) => {
     
     function generateChartData(){
         console.log(videoGames);
+        
+        // filter the Video Games by Year
+        let filteredGames = videoGames.filter(vg => vg.year >= 2013);
+        console.log(filteredGames);
+
+        
         const data = [
             ["Platform", "Sales", { role: "style" }],
             ["PS3", 8.94, "#b87333"], // RGB value
