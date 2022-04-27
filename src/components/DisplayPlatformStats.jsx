@@ -16,7 +16,10 @@ const DisplayPlatformStats = ({videoGames}) => {
             return vg.platform
         });
 
+        let distinctPlatform = [...new Set(platforms)]
+
         console.log("Platforms: ", platforms)
+        console.log("Distinct Platforms", distinctPlatform)
 
         
         const data = [
