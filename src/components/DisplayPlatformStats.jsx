@@ -19,16 +19,30 @@ const DisplayPlatformStats = ({videoGames}) => {
         let distinctPlatform = [...new Set(platforms)]
 
         console.log("Platforms: ", platforms)
+
+        // uniq = [... Set(Array)]
         console.log("Distinct Platforms", distinctPlatform)
+
+        // ["ps3, 10, "silver"]
+
+        let platformArrays = distinctPlatform.map(platform => {
+            
+            let allPlatformGames = filteredGames.filter(game => game.platfrom == platform);
+            // now we need to loop through allPlatformGames and sum each games global sales
+            // Once we have the sum of all those gmaes global sales replace the "10"
+
+            return [platform, 10, "silver"]
+        });
+
+        console.log("PlatformArrays: ", platformArrays)
 
         
         const data = [
             ["Platform", "Sales", { role: "style" }],
-            ["PS3", 8.94, "#b87333"], // RGB value
-            ["Silver", 10.49, "silver"], // English color name
-            ["Gold", 19.3, "gold"],
-            ["Platinum", 21.45, "color: #e5e4e2"], // CSS-style declaration
+            ...platformArrays  
           ];
+          console.log("data:", data)
+            
 
         return data;
     }
