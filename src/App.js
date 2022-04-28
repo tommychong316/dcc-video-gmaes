@@ -29,9 +29,9 @@ function App() {
       
         <h3 style={{margin: '1em'}}>GAME STATS</h3>
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
-          <DisplayPlatformStats searchTerm={searchTerm} videoGames={videoGames} />
+          <DisplayPlatformStats videoGames={videoGames} />
           <div className="border-box">
-          <DisplayGames parentVideoGames={videoGames} />
+          <DisplayGames searchTerm={searchTerm} parentVideoGames={videoGames} />
           
           </div>
      

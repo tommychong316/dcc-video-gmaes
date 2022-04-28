@@ -2,12 +2,12 @@ import axios from "axios";
 import React from "react";
 
 const DisplayGames = ({ searchTerm, parentVideoGames }) => {
-  const filterVideoGames = (videoGame) => {
+  const filterVideoGames = videoGame => {
     return videoGame.name.includes(searchTerm);
   };
 
   return (
-    <table class="table table-bordered">
+    <table className="table table-bordered">
       <thead>
         <tr>
           <th scope="col">Title</th>
