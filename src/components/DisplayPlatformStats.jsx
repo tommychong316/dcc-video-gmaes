@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
 import { Chart } from "react-google-charts";
-
 
 
 const DisplayPlatformStats = ({videoGames}) => {
@@ -25,13 +23,13 @@ const DisplayPlatformStats = ({videoGames}) => {
 
         // ["ps3, 10, "silver"]
 
-        let platformArrays = distinctPlatform.map(platform => {
+        let platformArrays = distinctPlatform.map((platform) => {
             
-            let allPlatformGames = filteredGames.filter(game => game.platfrom == platform);
+            let allPlatformGames = filteredGames.filter((game) => game.platform === platform).reduce((total,currentValue) => (total = total + currentValue.globalSales),0);
             // now we need to loop through allPlatformGames and sum each games global sales
             // Once we have the sum of all those gmaes global sales replace the "10"
-
-            return [platform, 10, "silver"]
+            console.log("Platform", platform, "Global sales", allPlatformGames)
+            return [platform, allPlatformGames, "silver"]
         });
 
         console.log("PlatformArrays: ", platformArrays)
