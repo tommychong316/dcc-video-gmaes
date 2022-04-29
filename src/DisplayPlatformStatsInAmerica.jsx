@@ -1,6 +1,6 @@
 import { Chart } from "react-google-charts";
 
-const DisplayPlatformStats = ({ videoGames }) => {
+const DisplayPlatformStatsInAmerica = ({ videoGames }) => {
   function generateChartData() {
     console.log(videoGames);
 
@@ -27,13 +27,13 @@ const DisplayPlatformStats = ({ videoGames }) => {
       let allPlatformGames = filteredGames
         .filter((game) => game.platform === platform)
         .reduce(
-          (total, currentValue) => (total = total + currentValue.globalSales),
+          (total, currentValue) => (total = total + currentValue.northAmericaSales),
           0
         );
       // now we need to loop through allPlatformGames and sum each games global sales
       // Once we have the sum of all those gmaes global sales replace the "10"
-      console.log("Platform", platform, "Global sales", allPlatformGames);
-      return [platform, allPlatformGames, "silver"];
+      console.log("Platform", platform, "N. America Sales", allPlatformGames);
+      return [platform, allPlatformGames, "green"];
     });
         
     console.log("PlatformArrays: ", platformArrays);
@@ -46,11 +46,13 @@ const DisplayPlatformStats = ({ videoGames }) => {
 
   return (
     <div>
-      <h1>Platform By Global sales in Millions</h1>
+      <h1>What is the Best Game to Purchase based on Platform By N. America sales in Millions(since 2013)?</h1>
       <Chart chartType="ColumnChart" width="100%" height="400px" data={generateChartData()} />
 
     </div>
   );
 };
 
-export default DisplayPlatformStats;
+export default DisplayPlatformStatsInAmerica;
+
+  

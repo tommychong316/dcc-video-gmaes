@@ -7,6 +7,7 @@ const DisplayGames = ({ searchTerm, parentVideoGames }) => {
   };
 
   return (
+      
     <table className="table table-bordered">
       <thead>
         <tr>

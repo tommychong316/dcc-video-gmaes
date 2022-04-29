@@ -4,6 +4,10 @@ import DisplayPlatformStats from "./components/DisplayPlatformStats";
 import "./App.css";
 import SearchBar from "./components/Searchbar/SearchBar";
 import DisplayGames from "./components/DsiplayGames/DisplayGames";
+import Navbar from "./components/NavBar/NavBar";
+import DisplayPlatformStatsInAmerica from "./DisplayPlatformStatsInAmerica";
+
+
 
 function App() {
   const [videoGames, setVideoGames] = useState([]);
@@ -23,13 +27,20 @@ function App() {
     }
   }
 
+
+
+
+
+
   return (
     <div className="container">
       <div className="row"/>
-      
-        <h3 style={{margin: '1em'}}>GAME STATS</h3>
+          <Navbar />
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
           <DisplayPlatformStats videoGames={videoGames} />
+          <DisplayPlatformStatsInAmerica videoGames={videoGames} />
+
+
           <div className="border-box">
           <DisplayGames searchTerm={searchTerm} parentVideoGames={videoGames} />
           
