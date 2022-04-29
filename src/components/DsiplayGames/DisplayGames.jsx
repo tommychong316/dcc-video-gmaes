@@ -1,10 +1,14 @@
 import axios from "axios";
 import React from "react";
 
-const DisplayGames = ({ searchTerm, parentVideoGames }) => {
-  const filterVideoGames = videoGame => {
-    return videoGame.name.includes(searchTerm);
+const DisplayGames = ({ searchTerm, parentVideoGames, setVideoGames }) => {
+
+  const filterVideoGames = (videoGame) => {
+    console.log("video game name:", videoGame)
+    let fliteredGames = parentVideoGames.filter(game => game.name == videoGame)
+    setVideoGames(fliteredGames)
   };
+
 
   return (
       
@@ -19,7 +23,7 @@ const DisplayGames = ({ searchTerm, parentVideoGames }) => {
         </tr>
       </thead>
       <tbody>
-        {parentVideoGames.filter(filterVideoGames).map(videoGame => {
+        {parentVideoGames.filter(game=>game.name.includes(searchTerm)).map(videoGame => {
           return (
             <tr>
               <td>{videoGame.name}</td>
@@ -27,7 +31,7 @@ const DisplayGames = ({ searchTerm, parentVideoGames }) => {
               <td>{videoGame.year}</td>
               <td>{videoGame.publisher}</td>
               <td>
-                <button type="submit">view stats</button>
+                <button onClick={()=>filterVideoGames(videoGame.name)}>view stats</button>
               </td>
             </tr>
           );

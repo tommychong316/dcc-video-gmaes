@@ -42,7 +42,7 @@ function App() {
 
 
           <div className="border-box">
-          <DisplayGames searchTerm={searchTerm} parentVideoGames={videoGames} />
+          <DisplayGames searchTerm={searchTerm} parentVideoGames={videoGames} setVideoGames={setVideoGames} />
           
           </div>
      

@@ -1,6 +1,9 @@
 import { Chart } from "react-google-charts";
+import React from 'react';
+
 
 const DisplayPlatformStats = ({ videoGames }) => {
+  
   function generateChartData() {
     console.log(videoGames);
 
@@ -8,11 +11,13 @@ const DisplayPlatformStats = ({ videoGames }) => {
     let filteredGames = videoGames.filter((vg) => vg.year >= 2013);
     console.log("Filtered Games: ", filteredGames);
 
+    let names = filteredGames.map((vg) => {
+      return vg.name;
+    }); 
+
     let platforms = filteredGames.map((vg) => {
       return vg.platform;
     });
-
-
 
     let distinctPlatform = [...new Set(platforms)];
 
@@ -43,6 +48,7 @@ const DisplayPlatformStats = ({ videoGames }) => {
 
     return data;
   }
+
 
   return (
     <div>

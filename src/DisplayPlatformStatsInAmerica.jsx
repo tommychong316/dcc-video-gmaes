@@ -1,6 +1,8 @@
 import { Chart } from "react-google-charts";
 
 const DisplayPlatformStatsInAmerica = ({ videoGames }) => {
+  
+
   function generateChartData() {
     console.log(videoGames);
 
